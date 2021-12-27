@@ -2,6 +2,7 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <keys.h>
+#include <FastLED.h>
 
 #define LED_GREEN 17
 #define LED_RED 16
@@ -117,5 +118,7 @@ void loop() {
   } else {
     digitalWrite(LED_RED, HIGH);
   }
+
+  EVERY_N_SECONDS(15) { pubSubClient.publish("test", "I love Jessica Hughes"); }
   
 }
